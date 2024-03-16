@@ -18,8 +18,8 @@ left_hand_landmarks_size = 21
 # Calcula o número total de coordenadas (incluindo x, y, z e visibilidade)
 num_coords = pose_landmarks_size + right_hand_landmarks_size + left_hand_landmarks_size
 
-# Cria lista de nomes das colunas do CSV: classe, seguido de x, y, z e v para cada landmark
-landmarks = ['classe']
+# Cria lista de nomes das colunas do CSV: label, seguido de x, y, z e v para cada landmark
+landmarks = ['label']
 for val in range(1, num_coords + 1):
     landmarks += ['x{}'.format(val), 'y{}'.format(val), 'z{}'.format(val), 'v{}'.format(val)]
 
@@ -36,7 +36,16 @@ def create_dataset(path='data', output_name='coords.csv', show=True):
         show (bool, optional): Se verdadeiro, exibe o vídeo com as detecções durante a criação do dataset. Default = True.
     """
 
-    with open(output_name, mode='w', newline='') as f:
+    # Definindo diretório de destino
+    output_path = f'dataset/{output_name}'
+
+    try:
+        os.mkdir(output_path.replace(output_name,''))
+    except:
+        print(f'Folder {output_path.replace(output_name,'')} already exists')
+        
+
+    with open(output_path, mode='w', newline='') as f:
         # Cria o escritor CSV para o arquivo de saída
         csv_writer = csv.writer(f, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
         # Escreve a linha do cabeçalho com os nomes das colunas
@@ -114,7 +123,7 @@ def create_dataset(path='data', output_name='coords.csv', show=True):
                         row.insert(0, class_name)
 
                         # Exporta a linha para o arquivo CSV
-                        with open(output_name, mode='a', newline='') as f:
+                        with open(output_path, mode='a', newline='') as f:
                             csv_writer = csv.writer(f, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
                             csv_writer.writerow(row)
 
