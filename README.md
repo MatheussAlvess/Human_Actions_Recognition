@@ -36,14 +36,19 @@ Os dados de treinamento para a MLP foram geradas passando um vídeo e extraíndo
 
 ## Dataset:
   
-O dataset foi criado a partir da extração dos landmarks do corpo e das duas mão, 
+- O dataset consiste em uma coluna `label`, referente às ações, e as demais colunas são as coordenadas dos landmarks detectados pelo MediaPipe, onde essas serão as _features_ do modelo de classificação.
+- Ele foi criado a partir de vídeos salvos na pasta `data`. (adendo: a pasta `data` deste repositório não contém todos os vídeos considerados no projeto)  
 
 ## Conteúdo:
 
-No repositório podem ser encontrados os arquivos:
-- `vae_model.py` -> Aqui é construída arquitetura de encoder decoder utilizada, além de funções auxiliares.
-- `tasks.py` - > Aqui são respondidas as questões a respeito de Missigenação e Identificação de raça.
-- Complementarmente, temos a pasta `images` contendo as imagens utilizadas na execução das tasks. 
+**No repositório podem ser encontrados os arquivos:**
+- `CrateDataset.py` - > Neste arquivo, é criado o dataset a partir dos vídeos de interesse.
+- `MLPModel.py` -> Neste arquivo, é construído e treinado o modelo MLP.
+- `ActionDetection.py` -> Neste arquivo, é feita a leitura do vídeo (seja de um vídeo gravado ou em tempo real) e feita as detecções dos landmarks. Uma vez com os landmarks, é utilizado o modelo carregado para realizar as classificações das ações.
+- `data` -> Está pasta contém os vídeos utilizados para a criação do dataset de coordenadas.
+- `dataset` -> Está pasta contém o dataset das coordenadas referente aos vídeos da pasta `data`.
+- `outputs` e `images` -> São pastas auxiliares para armazenar os resultados do projeto.
+
 
 ## Uso:
 
