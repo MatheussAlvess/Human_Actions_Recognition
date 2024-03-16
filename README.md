@@ -69,7 +69,7 @@ Os dados de treinamento para a MLP foram geradas passando um vídeo e extraíndo
   > Ex.: Executando `python ActionDetection.py`, tendo estanciado "ACTIONS(video_name='libras.mp4')" dentro do arquivo, será salvo um vídeo nomeado `output_libras.mp4`.
   
 
-- **Caso queira fazer o reconhecimento e classificação da ação em tempo real, basta executar:**
+- **Caso queira fazer o reconhecimento da ação em tempo real, basta executar:**
 
   ```
   python ActionDetection.py live
