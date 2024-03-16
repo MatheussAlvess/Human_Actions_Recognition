@@ -48,6 +48,7 @@ Os dados de treinamento para a MLP foram geradas passando um vídeo e extraíndo
 - `data` -> Está pasta contém os vídeos utilizados para a criação do dataset de coordenadas.
 - `dataset` -> Está pasta contém o dataset das coordenadas referente aos vídeos da pasta `data`.
 - `outputs` e `images` -> São pastas auxiliares para armazenar os resultados do projeto.
+- `requirements.txt` -> Dependências.
 
 ## Uso:
 
