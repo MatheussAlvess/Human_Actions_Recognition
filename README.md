@@ -1,7 +1,7 @@
 # actions
 
 # Reconhecimento de Ações Humanas em Vídeo
-<img src="images/exemplo.gif" width="500" height="500"/>
+<img src="images/exemplo.gif" width="400" height="400"/>
 
 ## O projeto consiste na construção de um sistema que permite reconhecer 20 ações humanas diferentes. 
 
@@ -125,4 +125,4 @@ ___________________________________________
 > [!TIP]
 > Trabalhando em um outro projeto com MediaPipe, já tive experiência com o problema da falha de detecção de landmarks. Como alternativa, utilizei o Pose Estimation da YOLO, a qual é bem mais eficiente realizando as detecções (em troca de um maior custo computacional). [Utilizando YOLO para Pose Estimation](https://github.com/MatheussAlvess/Cervical_Posture_YOLO_Pose_Estimation). 
 
-<img src="images/paz_tchau.gif" width="500" height="500"/>
+<img src="images/paz_tchau.gif" width="400" height="400"/>
