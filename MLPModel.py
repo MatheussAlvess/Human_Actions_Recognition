@@ -1,6 +1,6 @@
 import pandas as pd
-import numpy as np
 import tensorflow as tf
+
 from sklearn.model_selection import train_test_split
 
 
@@ -85,5 +85,3 @@ if __name__=='__main__':
 
     print(f'Loss no conjunto de teste: {mlp.test_loss}')
     print(f'Acurácia no conjunto de teste: {mlp.test_accuracy}')
-
-    
