@@ -33,14 +33,14 @@ class ACTIONS():
     Return: None.
     """
 
-   
     def __init__(self,
                  model_path: object = 'mlp_model.h5',
                  dataset_path: object = 'dataset/coords.csv',
                  video_path: object = 'data',
                  video_name: object = 'demo.mp4',
                  real_time: bool = False,
-                 cam_device: int = 0,
+                 save: bool = True,
+                 cam_device: int = 0
                  ) -> None:
         
         self.model_path = model_path
@@ -49,12 +49,19 @@ class ACTIONS():
         self.video_name = video_name
         self.real_time = real_time
         self.cam_device = cam_device
+        
+        if real_time:
+            self.save = False
+        else:
+            self.save = save 
 
+            
     # Método para carregar o modelo
     def load_model(self,model_path = None):
         model_path = self.model_path
         self.model = tf.keras.models.load_model(model_path)
         return self.model
+
 
     # Método para mapear as classes
     def class_mapping(self,dataset_path = None) -> None:
@@ -62,6 +69,7 @@ class ACTIONS():
         self.df = pd.read_csv(dataset_path)
         self.df['label'] = self.df['label'].apply(lambda x: x.replace('1',''))
         self.class_map = {class_label: idx for idx, class_label in enumerate(self.df['label'].unique())}
+
 
     # Método para detecção de ações e predição de classe
     def actions_detection(self):
@@ -73,13 +81,22 @@ class ACTIONS():
                     cap = cv2.VideoCapture(f'{self.video_path}/{self.video_name}') # Captura de vídeo gravado
                 else:
                     print('Erro: não foi possível encontrar o video.')
-                    
+
+            if self.save:
+                # Pegando propriedades do video
+                frame_width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
+                frame_height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
+                fps = int(cap.get(cv2.CAP_PROP_FPS))
+
+                # Criando objeto VideoWriter
+                fourcc = cv2.VideoWriter_fourcc(*'mp4v')  # Use 'mp4v' codec for MP4 format
+                self.out = cv2.VideoWriter(f'output_{self.video_name}', fourcc, fps, (frame_width, frame_height))
+                        
             # Inicializando Holistic com configurações de confiança mínima para detecçao e rastreamento
             with mp_holistic.Holistic(min_detection_confidence=0.5, min_tracking_confidence=0.5) as holistic:
                 
                 while cap.isOpened():
                     ret, frame = cap.read() # Leitura de cada frame do vídeo
-                    
                     # Converte a imagem para o formato RGB (necessário para o MediaPipe)
                     image = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
                     # Define a imagem como não-gravável para processamento interno do MediaPipe
@@ -180,16 +197,20 @@ class ACTIONS():
 
                     # Exibe o frame com as detecções                  
                     cv2.imshow('Video', image)
-                    
+                    if self.save:
+                        self.out.write(image)
+
                     # Aperte 'q' para sair
                     if cv2.waitKey(10) & 0xFF == ord('q'):
                         break
 
-            cap.release()
-            cv2.destroyAllWindows()
+                cap.release()
+                if self.save:
+                    self.out.release()
+                cv2.destroyAllWindows()
         
         except:
-            pass
+             pass
 
 
 if __name__=='__main__':
