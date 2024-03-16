@@ -1,3 +1,3 @@
 # actions
 
-!["GIF description"](images/libras.gif)
+!["GIF description"](images/exemplo.gif)
