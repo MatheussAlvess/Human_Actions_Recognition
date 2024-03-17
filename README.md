@@ -124,6 +124,7 @@ ___________________________________________
 
 
 > [!TIP]
-> Trabalhando em um outro projeto com MediaPipe, já tive experiência com o problema da falha de detecção de landmarks. Como alternativa, utilizei o Pose Estimation da YOLO, a qual é bem mais eficiente realizando as detecções (em troca de um maior custo computacional). [Utilizando YOLO para Pose Estimation](https://github.com/MatheussAlvess/Cervical_Posture_YOLO_Pose_Estimation). 
+> - Trabalhando em um outro projeto com MediaPipe, já tive experiência com o problema da falha de detecção de landmarks. Como alternativa, utilizei o Pose Estimation da YOLO, a qual é bem mais eficiente realizando as detecções (em troca de um maior custo computacional). [Utilizando YOLO para Pose Estimation](https://github.com/MatheussAlvess/Cervical_Posture_YOLO_Pose_Estimation).
+> - O corpo do código de detecção de pose tem como principal referência esse repositório: [Body-Language-Decoder](https://github.com/nicknochnack/Body-Language-Decoder/tree/main).
 
 <img src="images/paz_tchau.gif" width="400" height="400"/>
