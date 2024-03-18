@@ -1,5 +1,3 @@
-# actions
-
 # Reconhecimento de Ações Humanas em Vídeo
 <img src="images/exemplo.gif" width="400" height="400"/>
 
@@ -55,7 +53,7 @@ Os dados de treinamento para a MLP foram geradas passando um vídeo e extraíndo
 **Passos iniciais**
 1. Clone este repositório para o seu computador.
    ```
-   git clone https://github.com/MatheussAlvess/<nome_do_repositório>.git
+   git clone https://github.com/MatheussAlvess/Reconhecendo_Acoes_MediaPipe.git
    ```
 3. Navegue até o diretório do projeto.
 4. Garanta ter as dependências necessárias (vide `requirements.txt`)
