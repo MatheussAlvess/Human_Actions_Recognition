@@ -51,12 +51,15 @@ Os dados de treinamento para a MLP foram geradas passando um vídeo e extraíndo
 ## Uso:
 
 **Passos iniciais**
-1. Clone este repositório para o seu computador.
+1. Clone este repositório para o seu computador com o comando:
    ```
    git clone https://github.com/MatheussAlvess/Reconhecendo_Acoes_MediaPipe.git
    ```
 3. Navegue até o diretório do projeto.
-4. Garanta ter as dependências necessárias (vide `requirements.txt`)
+4. Garanta ter as dependências necessárias executando no terminal:
+```
+ pip install -r requirements.txt
+```
    
 - **Para realizar o reconhecimento das ações em um vídeo dado de input, execute o comando**
 
