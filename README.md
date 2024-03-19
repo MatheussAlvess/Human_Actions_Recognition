@@ -58,15 +58,14 @@ Os dados de treinamento para a MLP foram geradas passando um vídeo e extraíndo
 3. Navegue até o diretório do projeto.
 4. Garanta ter as dependências necessárias (vide `requirements.txt`)
    
-- **Para realizar o reconhecimento de uma das 20 ações em um vídeo dado de input, execute o comando**
+- **Para realizar o reconhecimento das ações em um vídeo dado de input, execute o comando**
 
   ```
-  python ActionDetection.py
+  python ActionDetection.py <nome_do_video>.mp4
   ```
-  Garantindo que dentro do arquivo `ActionDetection.py` a classe "ACTIONS" seja instaciada com o nome do vídeo de interesse de input, assim o vídeo será processado e salvo com o nome `output_<nome_do_video>`. 
-  
-  > Ex.: Executando `python ActionDetection.py`, tendo instanciado "ACTIONS(video_name='libras.mp4')" dentro do arquivo, será salvo um vídeo nomeado `output_libras.mp4`.
-  
+    
+  > Ex.: Executando `python ActionDetection.py exemplo.mp4`, será salvo um vídeo nomeado `output_exemplo.mp4`.
+
 
 - **Caso queira fazer o reconhecimento da ação em tempo real, basta executar:**
 
