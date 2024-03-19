@@ -216,10 +216,10 @@ class ACTIONS():
 if __name__=='__main__':
     args = sys.argv
    
-    if len(args) > 1:
+    if args[1] == 'live':
         human_actions = ACTIONS(real_time=True)
     else:
-        human_actions = ACTIONS(video_name='libras.mp4')
+        human_actions = ACTIONS(video_name=args[1])
 
     human_actions.load_model()
     human_actions.class_mapping()
